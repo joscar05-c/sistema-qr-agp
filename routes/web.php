@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DirectorioController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [DirectorioController::class, 'index'])->name('directorio.index');
+Route::get('/oficina/{subArea}', [DirectorioController::class, 'showSubArea'])->name('directorio.subarea');
