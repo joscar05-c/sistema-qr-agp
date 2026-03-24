@@ -11,6 +11,7 @@ class Area extends Model
     protected $fillable = [
         'nombre',
         'siglas',
+        'piso',
         'descripcion',
         'color',
         'icono',

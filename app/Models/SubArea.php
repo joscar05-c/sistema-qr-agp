@@ -11,6 +11,7 @@ class SubArea extends Model
     protected $fillable = [
         'area_id',
         'nombre',
+        'oficina',
         'codigo_interno',
         'is_active'
     ];

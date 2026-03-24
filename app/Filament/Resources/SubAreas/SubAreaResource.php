@@ -41,6 +41,9 @@ class SubAreaResource extends Resource
                     TextInput::make('nombre')
                         ->required()
                         ->maxLength(255),
+                    TextInput::make('oficina')
+                        ->maxLength(100)
+                        ->hint('Ej: Oficina 204 o Puerta principal'),
                     TextInput::make('codigo_interno')
                         ->maxLength(50),
                     Toggle::make('is_active')

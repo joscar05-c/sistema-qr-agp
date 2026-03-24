@@ -15,6 +15,7 @@ use Filament\Tables;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
 
 class AreaResource extends Resource
@@ -33,12 +34,23 @@ class AreaResource extends Resource
         return $schema->components([
             Section::make('Detalles del Área')
                 ->schema([
-                    Forms\Components\TextInput::make('nombre')
+                    TextInput::make('nombre')
                         ->required()
                         ->maxLength(255),
-                    Forms\Components\TextInput::make('siglas')
+                    TextInput::make('siglas')
                         ->required()
                         ->maxLength(50),
+                    TextInput::make('siglas')
+                        ->required()
+                        ->maxLength(50),
+                    TextInput::make('piso')
+                        ->datalist([
+                            'Piso 1',
+                            'Piso 2',
+                            'Piso 3',
+                        ])
+                        ->maxLength(50)
+                        ->hint('Ej: Piso 1'),
                     Forms\Components\Textarea::make('descripcion')
                         ->columnSpanFull(),
                     Forms\Components\ColorPicker::make('color'),
