@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('sub_areas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('area_id')->constrained()->onDelete('cascade');
+            $table->string('nombre'); // Ej: Educación Intercultural Bilingüe
+            $table->string('codigo_interno')->nullable(); // Por si manejan códigos de oficina
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
