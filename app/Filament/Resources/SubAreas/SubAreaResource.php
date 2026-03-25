@@ -7,6 +7,7 @@ use App\Filament\Resources\SubAreas\Pages\EditSubArea;
 use App\Filament\Resources\SubAreas\Pages\ListSubAreas;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\Action;
 use Filament\Actions\EditAction;
 use App\Models\SubArea;
 use BackedEnum;
@@ -19,6 +20,7 @@ use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Section;
 use Filament\Tables;
 use Filament\Tables\Table;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class SubAreaResource extends Resource
 {
@@ -69,6 +71,12 @@ class SubAreaResource extends Resource
             ])
             ->recordActions([ // <-- Actualizado
                 EditAction::make(),
+                Action::make('imprimir_qr')
+                    ->label('QR Oficina')
+                    ->icon('heroicon-o-qr-code')
+                    ->color('success')
+                    ->url(fn($record) => route('directorio.subarea.qr', $record->id))
+                    ->openUrlInNewTab(),
             ])
             ->groupedBulkActions([ // <-- Actualizado
                 BulkActionGroup::make([
